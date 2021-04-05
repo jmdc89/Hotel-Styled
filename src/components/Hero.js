@@ -7,6 +7,9 @@ const Hero = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default Hero;
