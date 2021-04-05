@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { ThemeProvider } from "styled-components";
 import { redTheme, greenTheme, blueTheme } from "./components/themes";
@@ -7,11 +7,23 @@ import Button from "./components/Button";
 import Content from "./components/Content";
 
 function App() {
+  const [theme, setTheme] = useState(redTheme);
+
+  const handleTheme = () => {
+    if (theme.primaryColor === "red") {
+      setTheme(greenTheme);
+    } else if (theme.primaryColor === "green") {
+      setTheme(blueTheme);
+    } else {
+      setTheme(redTheme);
+    }
+  };
+
   return (
-    <ThemeProvider theme={redTheme}>
+    <ThemeProvider theme={theme}>
       <main>
         <Navbar>
-          <Button>toggle theme</Button>
+          <Button onClick={handleTheme}>toggle theme</Button>
         </Navbar>
         <Content />
       </main>
