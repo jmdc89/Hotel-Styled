@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
-import { BasicInput } from "./components/Inputs";
+import { RedBox, GreenBox } from "./components/Boxes";
 
 function App() {
   return (
     <div>
-      <BasicInput />
+      <RedBox color="red" />
+      <GreenBox color="green" />
     </div>
   );
 }
