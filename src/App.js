@@ -1,15 +1,16 @@
 import React from "react";
 import "./App.css";
-import { RedBox, GreenBox } from "./components/Boxes";
-import { Box } from "./components/AnimatedBox";
+import { ThemeProvider } from "styled-components";
+import { redTheme, greenTheme, blueTheme } from "./components/themes";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div>
-      <RedBox color="red" />
-      <GreenBox color="green" />
-      <Box />
-    </div>
+    <ThemeProvider theme={redTheme}>
+      <main>
+        <Navbar />
+      </main>
+    </ThemeProvider>
   );
 }
 
