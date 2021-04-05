@@ -1,23 +1,43 @@
-import React from "react";
 import styled from "styled-components";
 
-const Banner = ({ title, children }) => {
-  return (
-    <BannerWrapper>
-      <h1>{title}</h1>
-      {children}
-    </BannerWrapper>
-  );
+const screen = {
+  phone: (...args) => {
+    const styles = args;
+
+    return `@media (min-width:900px){
+            ${styles};
+        }`;
+  },
 };
 
-const BannerWrapper = styled.div`
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  text-align: center;
-  h1:hover {
-    color: red;
+export const Banner = styled.div`
+  background: red;
+  h1 {
+    color: white;
+    text-transform: uppercase;
   }
+  ${screen.phone`background:blue;h1{
+      color:yellow
+  }`}/* @media (min-width: 576px) {
+    background: blue;
+    h1 {
+      color: yellow;
+      text-transform: uppercase;
+    }
+  } */
 `;
 
-export default Banner;
+export const SecondBanner = styled.div`
+  background: blue;
+  h1 {
+    color: red;
+    text-transform: uppercase;
+  }
+  @media (min-width: 576px) {
+    background: green;
+    h1 {
+      color: blue;
+      text-transform: uppercase;
+    }
+  }
+`;
